@@ -1,8 +1,5 @@
 # 🏥 Distribution of Medical Equipment Dashboard
 
-[![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://www.microsoft.com/power-platform/products/power-bi)
-[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ahmedlubis/distribution-of-medical-equip-dashboard)
-
 > Interactive Power BI dashboard for analyzing the distribution of medical equipment.
 
 ---
