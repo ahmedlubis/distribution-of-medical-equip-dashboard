@@ -206,9 +206,8 @@ distribution-of-medical-equip-dashboard/
 │
 ├── Mapping_Distribution.csv
 │
-├── Medical Equipment Distribution Dashboard.pbip
-│
-└── Medical Equipment Distribution Dashboard.pbix
+└── Medical Equipment Distribution Dashboard.pbip
+
 ```
 
 The repository uses the Power BI Project structure alongside the traditional `.pbix` file, making the report and semantic model components easier to manage in a version-controlled development workflow.
