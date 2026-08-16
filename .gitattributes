@@ -1,2 +1,3 @@
-# Power BI / TMDL
 *.tmdl linguist-language=TMDL
+*.json linguist-language=JSON
+*.csv linguist-language=CSV
