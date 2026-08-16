@@ -1,0 +1,76 @@
+table Mapping_Distribution
+	lineageTag: b8d2d2ae-5995-4f90-a6ec-9a14952d1175
+
+	column 'Medical Equipment'
+		dataType: string
+		lineageTag: a89b8806-d0dd-4f4a-878e-f0c4b90c1570
+		summarizeBy: none
+		sourceColumn: Medical Equipment
+
+		annotation SummarizationSetBy = Automatic
+
+	column Services
+		dataType: string
+		lineageTag: 22d2e1a8-f3e9-430c-a6d1-0ca7434fbddf
+		summarizeBy: none
+		sourceColumn: Services
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hospital Name'
+		dataType: string
+		lineageTag: 73d5df07-15d8-44ed-82b0-8357ae341829
+		summarizeBy: none
+		sourceColumn: Hospital Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column City/Regency
+		dataType: string
+		lineageTag: f0342bd2-b781-4e01-a4f2-b1825b540604
+		summarizeBy: none
+		sourceColumn: City/Regency
+
+		annotation SummarizationSetBy = Automatic
+
+	column Province
+		dataType: string
+		lineageTag: ca0ef094-4972-4ec9-a33f-cd46f5e13a54
+		summarizeBy: none
+		sourceColumn: Province
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 2009d906-df88-4cda-bb49-945d62418f04
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column Volume
+		dataType: int64
+		formatString: 0
+		lineageTag: bb702360-c3dc-42ac-968c-c4ba3189c6d4
+		summarizeBy: sum
+		sourceColumn: Volume
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Mapping_Distribution = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("D:\Project\Dashboard_Distribution of Med Equipment\Mapping_Distribution.csv"),[Delimiter=",", Columns=8, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"Medical Equipment", type text}, {"Services", type text}, {"Kode RS", Int64.Type}, {"Hospital Name", type text}, {"City/Regency", type text}, {"Province", type text}, {"Year", Int64.Type}, {"Volume", Int64.Type}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Kode RS"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
