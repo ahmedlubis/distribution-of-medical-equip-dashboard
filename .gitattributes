@@ -1,8 +1,8 @@
 # Power BI Semantic Model
-*.tmdl linguist-language=TMDL
+*.tmdl linguist-language=TMDL linguist-detectable
 
 # Power BI Report
-*.json linguist-language=JSON
+*.json linguist-language=JSON linguist-detectable
 
 # Supporting Dataset / Mapping
-*.csv linguist-language=CSV
+*.csv linguist-language=CSV linguist-detectable
